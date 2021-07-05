@@ -1120,3 +1120,22 @@ img#bbkd {
     opacity: 1;
   }
 }
+
+button {
+  margin-top: 20px;
+  font-family: "Samsung";
+  padding: 3px;
+  border-radius: 8px;
+  color: #0c2ffb;
+  border-color: #680000;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#audio {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
