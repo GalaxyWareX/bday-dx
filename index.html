@@ -11,50 +11,107 @@
     />
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
     <link rel="stylesheet" href="style/style.css" />
+  
+    <!-- <img id="bbkd" src="http://www.psdgraphics.com/file/abstract-purple-background-1280x1024.jpg">   -->
+    
+    <script>
+    $(window).load(function() {
+    /*
+    This needs to be in the window.load event or Chrome can't get the bgImage width or height.
+    If that doesn't work for you, uncomment the bgImage.load function and use this code as you need
+    */
+    var w = $(window),
+    bgImage = $("#bbkd"),
+    aspect = bgImage.width()/bgImage.height();
+    bgImage.addClass("bbkd");
+    /*
+    Necessary for Chrome if this is not in the window.load event
+        bgImage.load(function(){
+            aspect = bgImage.width()/bgImage.height();
+        });
+    */
+    
+    function backgroundBreathe(ms){
+        ms = (Math.floor(ms/2))*2;
+        if(w.width() >= parseInt(bgImage.css("minWidth")) ){
+            bgImage.animate({width: "104%","left":"48%",opacity: "1"}, ms/2).animate({width: "100%","left":"50%",opacity: ".5"}, ms/2);
+        }
+        else{
+            var sw= bgImage.width();
+            bgImage.animate({width: sw*1.04,"left":"48%",opacity: "1"}, ms/2).animate({width: sw,"left":"50%",opacity: ".5"}, ms/2);
+        }
+        window.BBKDtimer = setTimeout(function(){backgroundBreathe(ms);}, ms);
+    }
+    
+    backgroundBreathe(3200);
+    
+    function bgResize() {
+        var imageWidth = (bgImage.width()/bgImage.height()) < aspect? w.height() * aspect : bgImage.css("minWidth");
+        bgImage.css({"minWidth": imageWidth});
+    }            
+    
+    // Set events
+    w.resize(bgResize);
+    
+    //start the breathing
+    backgroundBreathe(3200);
+});
+</script>
+
   </head>
   <div class="hub">
     <span contenteditable="true">AngMao</span>
     <span contenteditable="true">Production</span>
   </div>
-
-  <div id="countdown">
-    <p class="P-dx">Just for DX</p>
-    <p id="demo1">Reveal In</p>
-    <p id="demo" onload="countDown()"></p>
+<div id="tsparticles">
+  <div id="countdown ">
+    <div id="DXcontainer wrapper">
+      <p class="P-dx">Just for DX</p>
+    </div>
+    <div class="sign">
+      
+        <p id="demo1" class="glow"><span class="fast-flicker">R</span>evea<span class="fast-flicker">l</span> In</p>
+      
+    </div>
+    <div class="textcontainer">
+      <span class="particletext lines"><p id="demo" class="glow" onload="countDown()"></p></span>
+    </div>
+    
+    
   </div>
 
   <script>
     // Set the date we're counting down to
     var countDownDate = new Date("July 9, 2021 00:00:00").getTime();
-
+    
     // Update the count down every 1 second
     var x = setInterval(function () {
       // Get today's date and time
       var now = new Date().getTime();
-
+      
       // Find the distance between now and the count down date
       var distance = countDownDate - now;
-
+      
       // Time calculations for days, hours, minutes and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor(
         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Output the result in an element with id="demo"
-      document.getElementById("demo").innerHTML =
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML =
         days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-      // If the count down is over, write some text
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "";
-        document.getElementById("demo1").innerHTML = "";
-      }
-    }, 1000);
-  </script>
+        
+        // If the count down is over, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "";
+          document.getElementById("demo1").innerHTML = "";
+        }
+      }, 1000);
+      </script>
 
   <body>
     <div class="locked" id="locked">
@@ -181,7 +238,7 @@
       </div>
       </div>
     </div>
-  </body>
+  </body></div>
 
   <script>
     var end = new Date("2021-07-09 00:00:00");
@@ -195,10 +252,188 @@
       var e = document.getElementById("countdown");
       e.parentElement.removeChild(e);
       // document.getElementById("locked").style.display = "block";
-
+      
     }
-  </script>
+    </script>
 
+    
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
   <script type="application/javascript" src="script/main.js"></script>
+  <!-- tsParticles main script -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tsparticles@1.22.1"></script>
+
+<!-- tsParticles confetti shape script -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tsparticles-shape-confetti@1.7.1"></script>
+<script>// the tsParticles loading script
+  tsParticles.load("tsparticles", {
+    fullScreen: {
+      enable: true
+    },
+    particles: {
+      number: {
+        value: 0 // no starting particles
+      },
+      color: {
+        value: ["#1E00FF", "#FF0061", "#E1FF00", "#00FF9E"] // the confetti colors
+      },
+      shape: {
+        type: "confetti", // the confetti shape
+        options: {
+          confetti: { // confetti shape options
+            type: ["circle", "square"] // you can only have circle or square for now
+          }
+        }
+      },
+      opacity: {
+        value: 1, // confetti are solid, so opacity should be 1, but who cares?
+        animation: {
+          enable: true, // enables the opacity animation, this will fade away the confettis
+          minimumValue: 0, // minimum opacity reached with animation
+          speed: 2, // the opacity animation speed, the higher the value, the faster the confetti disappear
+          startValue: "max", // start always from opacity 1
+          destroy: "min" // destroy the confettis at opacity 0
+        }
+      },
+      size: {
+        value: 7, // confetti size
+        random: {
+          enable: true, // enables a random size between 3 (below) and 7 (above)
+          minimumValue: 3 // the confetti minimum size
+        }
+      },
+      life: {
+        duration: {
+          sync: true, // syncs the life duration for those who spawns together
+          value: 5 // how many seconds the confettis should be on screen
+        },
+        count: 1 // how many times the confetti should appear, once is enough this time
+      },
+      move: {
+        enable: true, // confetti need to move right?
+        gravity: {
+          enable: true, // gravity to let them fall!
+          acceleration: 20 // how fast the gravity should attract the confettis
+        },
+        speed: 50, // the confetti speed, it's the starting value since gravity will affect it, and decay too
+        decay: 0.05, // the speed decay over time, it's a decreasing value, every frame the decay will be multiplied by current particle speed and removed from that value
+        outModes: { // what confettis should do offscreen?
+          default: "destroy", // by default remove them
+          top: "none" // but since gravity attract them to bottom, when they go offscreen on top they can stay
+        }
+      }
+    },
+    background: {
+      
+    },
+    emitters: [ // the confetti emitters, the will bring confetti to life
+      {
+        direction: "top-right", // the first emitter spawns confettis moving in the top right direction
+        rate: {
+          delay: 0.1, // this is the delay in seconds for every confetti emission (10 confettis will spawn every 0.1 seconds)
+          quantity: 10 // how many confettis must spawn ad every delay
+        },
+        position: { // the emitter position (values are in canvas %)
+          x: 0,
+          y: 50
+        },
+        size: { // the emitter size, if > 0 you'll have a spawn area instead of a point
+          width: 0,
+          height: 0
+        }
+      },
+      {
+        direction: "top-left", // same as the first one but in the opposite side
+        rate: {
+          delay: 0.1,
+          quantity: 10
+        },
+        position: {
+          x: 100,
+          y: 50
+        },
+        size: {
+          width: 0,
+          height: 0
+        }
+      }
+    ]
+  });</script>
+
+  <script>function initparticles() {
+    bubbles();
+    hearts();
+    lines();
+    confetti();
+    fire();
+    sunbeams();
+ }
+ 
+ /*The measurements are ... whack (so to say), for more general text usage I would generate different sized particles for the size of text; consider this pen a POC*/
+ 
+ function bubbles() {
+    $.each($(".particletext.bubbles"), function(){
+       var bubblecount = ($(this).width()/50)*10;
+       for(var i = 0; i <= bubblecount; i++) {
+          var size = ($.rnd(40,80)/10);
+          $(this).append('<span class="particle" style="top:' + $.rnd(20,80) + '%; left:' + $.rnd(0,95) + '%;width:' + size + 'px; height:' + size + 'px;animation-delay: ' + ($.rnd(0,30)/10) + 's;"></span>');
+       }
+    });
+ }
+ 
+ function hearts() {
+    $.each($(".particletext.hearts"), function(){
+       var heartcount = ($(this).width()/50)*5;
+       for(var i = 0; i <= heartcount; i++) {
+          var size = ($.rnd(60,120)/10);
+          $(this).append('<span class="particle" style="top:' + $.rnd(20,80) + '%; left:' + $.rnd(0,95) + '%;width:' + size + 'px; height:' + size + 'px;animation-delay: ' + ($.rnd(0,30)/10) + 's;"></span>');
+       }
+    });
+ }
+ 
+ function lines() {
+    $.each($(".particletext.lines"), function(){
+       var linecount = ($(this).width()/50)*10;
+       for(var i = 0; i <= linecount; i++) {
+          $(this).append('<span class="particle" style="top:' + $.rnd(-30,30) + '%; left:' + $.rnd(-10,110) + '%;width:' + $.rnd(1,3) + 'px; height:' + $.rnd(20,80) + '%;animation-delay: -' + ($.rnd(0,30)/10) + 's;"></span>');
+       }
+    });
+ }
+ 
+ function confetti() {
+    $.each($(".particletext.confetti"), function(){
+       var confetticount = ($(this).width()/50)*10;
+       for(var i = 0; i <= confetticount; i++) {
+          $(this).append('<span class="particle c' + $.rnd(1,2) + '" style="top:' + $.rnd(10,50) + '%; left:' + $.rnd(0,100) + '%;width:' + $.rnd(6,8) + 'px; height:' + $.rnd(3,4) + 'px;animation-delay: ' + ($.rnd(0,30)/10) + 's;"></span>');
+       }
+    });
+ }
+ 
+ function fire() {
+    $.each($(".particletext.fire"), function(){
+       var firecount = ($(this).width()/50)*20;
+       for(var i = 0; i <= firecount; i++) {
+          var size = $.rnd(8,12);
+          $(this).append('<span class="particle" style="top:' + $.rnd(40,70) + '%; left:' + $.rnd(-10,100) + '%;width:' + size + 'px; height:' + size + 'px;animation-delay: ' + ($.rnd(0,20)/10) + 's;"></span>');
+       }
+    });
+ }
+ 
+ function sunbeams() {
+    $.each($(".particletext.sunbeams"), function(){
+       var linecount = ($(this).width()/50)*10;
+       for(var i = 0; i <= linecount; i++) {
+          $(this).append('<span class="particle" style="top:' + $.rnd(-50,0) + '%; left:' + $.rnd(0,100) + '%;width:' + $.rnd(1,3) + 'px; height:' + $.rnd(80,160) + '%;animation-delay: -' + ($.rnd(0,30)/10) + 's;"></span>');
+       }
+    });
+ }
+ 
+ jQuery.rnd = function(m,n) {
+       m = parseInt(m);
+       n = parseInt(n);
+       return Math.floor( Math.random() * (n - m + 1) ) + m;
+ }
+ 
+ initparticles();
+ 
+ </script>
 </html>
