@@ -11,63 +11,13 @@
     />
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
     <link rel="stylesheet" href="style/style.css" />
-  
-    <!-- <img id="bbkd" src="http://www.psdgraphics.com/file/abstract-purple-background-1280x1024.jpg">   -->
-    
-    <script>
-    $(window).load(function() {
-    /*
-    This needs to be in the window.load event or Chrome can't get the bgImage width or height.
-    If that doesn't work for you, uncomment the bgImage.load function and use this code as you need
-    */
-    var w = $(window),
-    bgImage = $("#bbkd"),
-    aspect = bgImage.width()/bgImage.height();
-    bgImage.addClass("bbkd");
-    /*
-    Necessary for Chrome if this is not in the window.load event
-        bgImage.load(function(){
-            aspect = bgImage.width()/bgImage.height();
-        });
-    */
-    
-    function backgroundBreathe(ms){
-        ms = (Math.floor(ms/2))*2;
-        if(w.width() >= parseInt(bgImage.css("minWidth")) ){
-            bgImage.animate({width: "104%","left":"48%",opacity: "1"}, ms/2).animate({width: "100%","left":"50%",opacity: ".5"}, ms/2);
-        }
-        else{
-            var sw= bgImage.width();
-            bgImage.animate({width: sw*1.04,"left":"48%",opacity: "1"}, ms/2).animate({width: sw,"left":"50%",opacity: ".5"}, ms/2);
-        }
-        window.BBKDtimer = setTimeout(function(){backgroundBreathe(ms);}, ms);
-    }
-    
-    backgroundBreathe(3200);
-    
-    function bgResize() {
-        var imageWidth = (bgImage.width()/bgImage.height()) < aspect? w.height() * aspect : bgImage.css("minWidth");
-        bgImage.css({"minWidth": imageWidth});
-    }            
-    
-    // Set events
-    w.resize(bgResize);
-    
-    //start the breathing
-    backgroundBreathe(3200);
-});
-</script>
 
   </head>
+
   <div class="hub">
     <span contenteditable="true">AngMao</span>
     <span contenteditable="true">Production</span>
   </div>
-  <!-- <div class="ang">
-    <span style="font-size: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;^</span><br>
-    <span style="position: absolute; margin-top: -1%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change text</span>
-
-  </div> -->
   <div class="ang">
 
     <span style="float: right; position: absolute;top: 1%;right: 0vw;font-size: 10px;color: rgba(137, 43, 226, 0.438); padding-right: 20px; ">特&nbsp;别&nbsp;的&nbsp;我&nbsp;给&nbsp;特&nbsp;别&nbsp;的&nbsp;你</span>
@@ -76,7 +26,7 @@
 <div id="tsparticles">
   <div id="countdown ">
     <div id="DXcontainer wrapper">
-      <p class="P-dx">Just for DX</p>
+      <p class="P-dx" id="P-dx">Just for DX</p>
     </div>
     <div class="sign">
       
@@ -86,42 +36,8 @@
     <div class="textcontainer">
       <span class="particletext lines"><p id="demo" class="glow" onload="countDown()"></p></span>
     </div>
-    
-    
+  
   </div>
-
-  <script>
-    // Set the date we're counting down to
-    var countDownDate = new Date("July 9, 2021 00:00:00").getTime();
-    
-    // Update the count down every 1 second
-    var x = setInterval(function () {
-      // Get today's date and time
-      var now = new Date().getTime();
-      
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now;
-      
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        // Output the result in an element with id="demo"
-        document.getElementById("demo").innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-        
-        // If the count down is over, write some text
-        if (distance < 0) {
-          clearInterval(x);
-          document.getElementById("demo").innerHTML = "";
-          document.getElementById("demo1").innerHTML = "";
-        }
-      }, 1000);
-      </script>
 
   <body>
     <div class="locked" id="locked">
@@ -251,21 +167,39 @@
   </body></div>
 
   <script>
-    var end = new Date("2021-07-09 00:00:00");
-    var now = new Date();
-    console.log(end - now);
-    if (end - now > 0) {
-      var l = document.getElementById("locked");
-      l.parentElement.removeChild(l);
-    }
-    if (end - now <= 0) {
-      var e = document.getElementById("countdown");
-      e.parentElement.removeChild(e);
-      // document.getElementById("locked").style.display = "block";
+    //TIME
+    // Set the date we're counting down to
+    var countDownDate = new Date("July 5, 2021 16:07:00").getTime();
+    
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+      // Get today's date and time
+      var now = new Date().getTime();
       
-    }
-    </script>
-
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+      
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        
+        // If the count down is over, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").style.display = "none";
+          document.getElementById("demo1").style.display = "none";
+          document.getElementById("P-dx").style.display = "none";
+       
+        }
+      }, 1000);</script>
     
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
   <script type="application/javascript" src="script/main.js"></script>
@@ -369,81 +303,5 @@
     ]
   });</script>
 
-  <script>function initparticles() {
-    bubbles();
-    hearts();
-    lines();
-    confetti();
-    fire();
-    sunbeams();
- }
- 
- /*The measurements are ... whack (so to say), for more general text usage I would generate different sized particles for the size of text; consider this pen a POC*/
- 
- function bubbles() {
-    $.each($(".particletext.bubbles"), function(){
-       var bubblecount = ($(this).width()/50)*10;
-       for(var i = 0; i <= bubblecount; i++) {
-          var size = ($.rnd(40,80)/10);
-          $(this).append('<span class="particle" style="top:' + $.rnd(20,80) + '%; left:' + $.rnd(0,95) + '%;width:' + size + 'px; height:' + size + 'px;animation-delay: ' + ($.rnd(0,30)/10) + 's;"></span>');
-       }
-    });
- }
- 
- function hearts() {
-    $.each($(".particletext.hearts"), function(){
-       var heartcount = ($(this).width()/50)*5;
-       for(var i = 0; i <= heartcount; i++) {
-          var size = ($.rnd(60,120)/10);
-          $(this).append('<span class="particle" style="top:' + $.rnd(20,80) + '%; left:' + $.rnd(0,95) + '%;width:' + size + 'px; height:' + size + 'px;animation-delay: ' + ($.rnd(0,30)/10) + 's;"></span>');
-       }
-    });
- }
- 
- function lines() {
-    $.each($(".particletext.lines"), function(){
-       var linecount = ($(this).width()/50)*10;
-       for(var i = 0; i <= linecount; i++) {
-          $(this).append('<span class="particle" style="top:' + $.rnd(-30,30) + '%; left:' + $.rnd(-10,110) + '%;width:' + $.rnd(1,3) + 'px; height:' + $.rnd(20,80) + '%;animation-delay: -' + ($.rnd(0,30)/10) + 's;"></span>');
-       }
-    });
- }
- 
- function confetti() {
-    $.each($(".particletext.confetti"), function(){
-       var confetticount = ($(this).width()/50)*10;
-       for(var i = 0; i <= confetticount; i++) {
-          $(this).append('<span class="particle c' + $.rnd(1,2) + '" style="top:' + $.rnd(10,50) + '%; left:' + $.rnd(0,100) + '%;width:' + $.rnd(6,8) + 'px; height:' + $.rnd(3,4) + 'px;animation-delay: ' + ($.rnd(0,30)/10) + 's;"></span>');
-       }
-    });
- }
- 
- function fire() {
-    $.each($(".particletext.fire"), function(){
-       var firecount = ($(this).width()/50)*20;
-       for(var i = 0; i <= firecount; i++) {
-          var size = $.rnd(8,12);
-          $(this).append('<span class="particle" style="top:' + $.rnd(40,70) + '%; left:' + $.rnd(-10,100) + '%;width:' + size + 'px; height:' + size + 'px;animation-delay: ' + ($.rnd(0,20)/10) + 's;"></span>');
-       }
-    });
- }
- 
- function sunbeams() {
-    $.each($(".particletext.sunbeams"), function(){
-       var linecount = ($(this).width()/50)*10;
-       for(var i = 0; i <= linecount; i++) {
-          $(this).append('<span class="particle" style="top:' + $.rnd(-50,0) + '%; left:' + $.rnd(0,100) + '%;width:' + $.rnd(1,3) + 'px; height:' + $.rnd(80,160) + '%;animation-delay: -' + ($.rnd(0,30)/10) + 's;"></span>');
-       }
-    });
- }
- 
- jQuery.rnd = function(m,n) {
-       m = parseInt(m);
-       n = parseInt(n);
-       return Math.floor( Math.random() * (n - m + 1) ) + m;
- }
- 
- initparticles();
- 
- </script>
+  
 </html>
