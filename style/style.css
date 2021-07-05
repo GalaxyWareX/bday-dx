@@ -237,7 +237,10 @@ body .particletext.sunbeams > .particle {
 }
 
 .DX-container {
-  margin: auto;
+  margin-top: 10vh;
+  margin-bottom: -20px;
+  margin-left: auto;
+  margin-right: auto;
   width: 50%;
 }
 
@@ -477,25 +480,29 @@ body .particletext.sunbeams > .particle {
 /* Media Queries */
 @media screen and (max-height: 1000px) {
   .six .hat {
-    left: 40%;
+    left: 0%;
+    top: -5%;
   }
 }
 
 @media screen and (max-height: 800px) {
   .six .hat {
-    left: 37%;
+    left: 0%;
+    top: -10%;
   }
 }
 
 @media screen and (max-height: 700px) {
   .six .hat {
-    left: 32%;
+    left: 16%;
+    top: -10%;
   }
 }
 
 @media screen and (max-height: 850px) and (max-width: 538px) {
   .six .hat {
-    left: 32%;
+    left: 16%;
+    top: -10%;
   }
 }
 
@@ -567,7 +574,7 @@ body .particletext.sunbeams > .particle {
   display: inline;
   font-family: sans-serif;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 10px;
   margin-left: 1%;
   margin-top: 5%;
   margin-right: 2%;
