@@ -244,11 +244,25 @@ body .particletext.sunbeams > .particle {
   width: 50%;
 }
 
+.dxpic {
+  margin-top: -10vh;
+}
+
 .DX {
   font-weight: 400;
   text-align: center;
   text-decoration: overline blue;
+  transition: 1s linear infinite;
 }
+
+/* @keyframes DX {
+  from {
+    text-decoration: overline blue;
+
+  to {
+    text-decoration: overline blue;
+  }
+} */
 
 .container {
   height: 100vh;
@@ -739,7 +753,7 @@ img#bbkd {
     transform: translateX(-50px);
   }
 }
-
+/* 
 @keyframes bubbles {
   0% {
     opacity: 0;
@@ -852,7 +866,7 @@ img#bbkd {
   99% {
     opacity: 1;
   }
-}
+} */
 
 #wrapper {
   margin-left: auto;
@@ -1128,12 +1142,15 @@ img#bbkd {
 button {
   margin-top: 20px;
   font-family: "Samsung";
+  font-size: 15px;
+  font-weight: 650;
   padding: 3px;
   border-radius: 8px;
-  color: #0c2ffb;
+  color: #ac2d2d;
   border-color: #680000;
   background-color: transparent;
   cursor: pointer;
+  opacity: 0.65;
 }
 
 #audio {
@@ -1142,4 +1159,12 @@ button {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+}
+
+.locked {
+  margin-top: 0vh;
+}
+
+html {
+  overflow: auto;
 }
