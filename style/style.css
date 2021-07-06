@@ -881,7 +881,7 @@ img#bbkd {
 }
 
 .glow11 {
-  animation: text-shadow 1.5s ease-in-out infinite;
+  animation: text-shadow 10s ease-out infinite;
 
   line-height: 1;
 }
@@ -942,13 +942,13 @@ img#bbkd {
   letter-spacing: 2;
   left: 50%;
   top: 35vh;
-  font-family: "Clip";
+  font-family: "Samsung";
   text-transform: uppercase;
   font-size: 6em;
   color: #ffe6ff;
-  text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
-    -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
-    0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+  text-shadow: 0 0 0.6rem #ff0000, 0 0 1.5rem #ac1313,
+    -0.2rem 0.1rem 1rem #b91010, 0.2rem 0.1rem 1rem #a51818,
+    0 -0.5rem 2rem #8d023e, 0 0.5rem 3rem #810a3e;
   animation: shine 2s forwards, flicker 3s infinite;
 }
 
@@ -958,9 +958,9 @@ img#bbkd {
   36%,
   75% {
     color: #ffe6ff;
-    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
-      -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
-      0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+    text-shadow: 0 0 0.6rem #29caaf, 0 0 1.5rem #66a0d6,
+      -0.2rem 0.1rem 1rem #f2afff, 0.2rem 0.1rem 1rem #ff65bd,
+      0 -0.5rem 2rem #ff2424, 0 0.5rem 3rem #ff2483;
   }
   28%,
   33% {
@@ -969,13 +969,17 @@ img#bbkd {
   }
   82%,
   97% {
-    color: #ff2483;
+    color: #2c1720;
     text-shadow: none;
   }
 }
 
 .flicker {
   animation: shine 2s forwards, blink 3s 2s infinite;
+}
+.flicker1 {
+  color: black;
+  animation: shine 1.25s forwards, blink 0.65s 1s infinite;
 }
 
 .fast-flicker {
