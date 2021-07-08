@@ -548,7 +548,7 @@ body .particletext.sunbeams > .particle {
 
   .six .hat {
     width: 50px;
-    top: -20px;
+    top: 20px;
   }
 
   .wish-hbd {
