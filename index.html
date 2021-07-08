@@ -17,13 +17,13 @@
     <span contenteditable="true">AngMao</span>
     <span contenteditable="true">Production</span>
   </div>
-  <div style="z-index: 1" class="music">
+  <div class="music">
     <audio
       id="player"
       autoplay
       src="audio/AudioCutter_DJ Dexter 超好聽 yangyang-關機又關機 x 王靖雯不胖-淪陷 x 張遠-嘉賓 x 無孟子-愛人錯過RMX 2021 P.mp3"
     ></audio>
-    <div id="audio">
+    <div style="z-index: 1; position: fixed" id="audio">
       <button onclick="document.getElementById('player').play()">Play</button>
       <button onclick="document.getElementById('player').pause()">Pause</button>
       <button onclick="next()">Skip</button>
@@ -71,7 +71,6 @@
   <script>
     var c = 0;
     var songs = [
-
       "audio/Pasing Goreng EDM Remix.mp3",
       "audio/AudioCutter_DJ Dexter 超好聽 yangyang-關機又關機 x 王靖雯不胖-淪陷 x 張遠-嘉賓 x 無孟子-愛人錯過RMX 2021 P(2).m4a",
       "audio/Audio0Cutter_Alan Walker - I Dont Wanna Go (Instrumental).mp3",
@@ -95,8 +94,9 @@
       </div>
       <div class="sign">
         <p id="demo1" class="glow">
-          <span class="fast-flicker">Rev</span><span class="fast-flicker">eal</span><span class="flicker">
-          In </span>
+          <span class="fast-flicker">Rev</span
+          ><span class="fast-flicker">eal</span
+          ><span class="flicker"> In </span>
         </p>
       </div>
       <div class="textcontainer">
@@ -107,7 +107,7 @@
     </div>
 
     <body>
-      <div style="z-index: -1" class="locked" id="locked">
+      <div style="z-index: 0" class="locked" id="locked">
         <div class="DX-container">
           <p class="DX">Chan, Today is your special day!</p>
         </div>
@@ -223,7 +223,7 @@
               <circle cx="20" cy="20" r="20" />
             </svg>
           </div>
-          <div class="nine">
+          <div style="z-index: 2" class="nine">
             <p>
               Bye, <mark>Onii-<b>CHAN</b></mark>
             </p>
@@ -352,7 +352,7 @@
   <script>
     //TIME
     // Set the date we're counting down to
-    var countDownDate = new Date("July 9, 2021 00:00:00").getTime();
+    var countDownDate = new Date("July 8, 2021 19:03:00").getTime();
 
     // Update the count down every 1 second
     var x = setInterval(function () {
@@ -385,7 +385,7 @@
   </script>
 
   <script>
-    var end = new Date("2021-07-09 00:00:00");
+    var end = new Date("2021-07-08 19:03:00");
     var now = new Date();
     console.log(end - now);
     if (end - now > 0) {
