@@ -567,7 +567,7 @@ body .particletext.sunbeams > .particle {
 @media screen and (max-width: 800px) {
   body {
     background-color: black;
-    background-position-x: -0rem;
+    background-position-x: -20rem;
     background-repeat: repeat;
     transition: 2s;
   }
